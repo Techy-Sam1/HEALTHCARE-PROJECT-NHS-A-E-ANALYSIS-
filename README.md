@@ -1,8 +1,6 @@
-# HEALTHCARE-PROJECT-NHS-A-E-ANALYSIS-
+# NHS ENGLAND A&E PERFORMANCE ANALYSIS
 
 
-
-# NHS England A&E Performance Analysis
 ### End-to-End Data Analytics Portfolio Project
 
 **Tools:** Excel | MySQL | Power BI
