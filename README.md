@@ -50,13 +50,13 @@ This project analyses 3 years of official NHS England data across 124 Trusts and
 **Licence:** Open Government Licence v3.0
 [Free to use for any purpose including portfolio work].
 
----
+
 
 ## MY APPROACH
 RAW XLSX > EXCEL> SQL > POWER BI
 Each tool built on the work of the one before it. The original NHS files were never modified.
 
----
+
 
 ## Step 1 - Excel: Extract and Merge
 
@@ -88,7 +88,6 @@ With the clean CSV imported into MySQL Workbench I ran 10 business queries to tu
   accidental bulk updates
 
 **BUSINESS QUERRIES:**
-NHS SQL queries.sql
 
 | Query | Question |
 |-------|----------|
