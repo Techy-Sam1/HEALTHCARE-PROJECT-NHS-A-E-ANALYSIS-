@@ -38,6 +38,7 @@ This project analyses 3 years of official NHS England data across 124 Trusts and
 ## THE DATASET
 
 **Source:** NHS England Official Statistics
+
 **URL:** digital.nhs.uk/data-and-information/publications/statistical/hospital-accident--emergency-activity
 
 **Files used:**
@@ -54,6 +55,7 @@ This project analyses 3 years of official NHS England data across 124 Trusts and
 
 ## MY APPROACH
 RAW XLSX > EXCEL> SQL > POWER BI
+
 Each tool built on the work of the one before it. The original NHS files were never modified.
 
 
@@ -73,6 +75,7 @@ The raw data was spread across 3 separate annual NHS England report files. Befor
 - Saved as NHS_AE_MASTER_CLEAN.csv
 
 **KEY CHALLENGE:** 
+
 22 Trusts had minor name variations across years due to inconsistent formatting in the source data. Resolved by using provider_code as the unique Trust identifier.
 
 
