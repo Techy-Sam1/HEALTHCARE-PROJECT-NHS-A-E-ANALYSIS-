@@ -88,6 +88,7 @@ With the clean CSV imported into MySQL Workbench I ran 10 business queries to tu
   accidental bulk updates
 
 **BUSINESS QUERRIES:**
+NHS SQL queries.sql
 
 | Query | Question |
 |-------|----------|
