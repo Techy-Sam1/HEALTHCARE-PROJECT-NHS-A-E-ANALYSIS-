@@ -6,12 +6,11 @@
 **Tools:** Excel | MySQL | Power BI
 **Data:** NHS England Official Statistics 2022-2025
 
----
 
-## The Business Problem
 
-The NHS has a constitutional standard that 95% of A&E patients must be seen within 4 hours. This target has not been met nationally since 2015. In March 2024 NHS England acknowledged the crisis by introducing a 
-reduced interim target of 78% to be met by March 2025. Even this easier target was missed.
+## BUSINESS PROBLEM
+
+The NHS has a constitutional standard that 95% of A&E patients must be seen within 4 hours. This target has not been met nationally since 2015. In March 2024 NHS England acknowledged the crisis by introducing a reduced interim target of 78% to be met by March 2025. Even this easier target was missed.
 
 This project analyses 3 years of official NHS England data across 124 Trusts and 47 million patient visits to answer three questions:
 
@@ -19,9 +18,9 @@ This project analyses 3 years of official NHS England data across 124 Trusts and
 - Which Trusts are performing worst and best?
 - Is performance getting better or worse?
 
----
 
-## The Numbers
+
+## THE FIGURES
 
 | Metric | Value |
 |--------|-------|
@@ -34,70 +33,61 @@ This project analyses 3 years of official NHS England data across 124 Trusts and
 | Trusts Hitting 78% Target | 15 out of 124 |
 | NHS Regions Covered | 7 |
 
----
 
-## The Dataset
+
+## THE DATASET
 
 **Source:** NHS England Official Statistics
-**URL:** digital.nhs.uk/data-and-information/
-publications/statistical/
-hospital-accident--emergency-activity
+**URL:** digital.nhs.uk/data-and-information/publications/statistical/hospital-accident--emergency-activity
 
 **Files used:**
 - AE2223_ECDS_MSitAE_Tables.xlsx (2022-23)
 - AE2324_ECDS_MSitAE_Tables.xlsx (2023-24)
 - AE2425_ECDS_MSitAE_Tables.xlsx (2024-25)
 
-**Sheet:** Table 6 — Provider level performance data
+**Sheet:** Table 6 - Provider level performance data
 
 **Licence:** Open Government Licence v3.0
 [Free to use for any purpose including portfolio work].
 
 ---
 
-## My Approach
+## MY APPROACH
 RAW XLSX > EXCEL> SQL > POWER BI
 Each tool built on the work of the one before it. The original NHS files were never modified.
 
 ---
 
-## Step 1 — Excel: Extract and Merge
+## Step 1 - Excel: Extract and Merge
 
 The raw data was spread across 3 separate annual NHS England report files. Before writing a single SQL query I cleaned and merged everything in Excel.
 
-**Actions taken:**
+**ACTIONS TAKEN:**
 - Extracted Table 6 from all 3 annual XLSX files
 - Added YEAR column to identify each record
 - Merged all 3 years into one master dataset
-- Mapped 124 Trusts to their NHS regions
-  via provider code lookup
-- Removed % symbols and comma separators
-  to prepare for MySQL import
+- Mapped 124 Trusts to their NHS regions via provider code lookup
+- Removed % symbols and comma separators to prepare for MySQL import
 - Renamed columns to remove special characters
-- Added calculated columns:
-  PERFORMANCE_GAP (95 minus actual performance)
-  TARGET_MET (YES or NO)
+- Added calculated columns: PERFORMANCE_GAP (95 minus actual performance) TARGET_MET (YES or NO)
 - Saved as NHS_AE_MASTER_CLEAN.csv
 
-**Key challenge:** 22 Trusts had minor name 
-variations across years due to inconsistent 
-formatting in the source data. Resolved by using 
-provider_code as the unique Trust identifier.
+**KEY CHALLENGE:** 
+22 Trusts had minor name variations across years due to inconsistent formatting in the source data. Resolved by using provider_code as the unique Trust identifier.
 
----
 
-## Step 2 — MySQL: Clean and Analyse
+## Step 2 - MySQL: Clean and Analyse
 
 With the clean CSV imported into MySQL Workbench I ran 10 business queries to turn raw rows into actual answers.
 
-**Cleaning:**
+**CLEANING:**
 - Trimmed whitespace from all text columns
 - Validated row counts matched Excel
 - Confirmed data types on all columns
 - Used SQL_SAFE_UPDATES to prevent
   accidental bulk updates
 
-**Business Queries:**
+**BUSINESS QUERRIES:**
 
 | Query | Question |
 |-------|----------|
@@ -105,21 +95,21 @@ With the clean CSV imported into MySQL Workbench I ran 10 business queries to tu
 | 2 | Top 10 worst performing Trusts 2024-25 |
 | 3 | Top 10 best performing Trusts 2024-25 |
 | 4 | Year on year improvement vs decline |
-| 5 | Scale of the crisis — total patients failed |
-| 6 | 78% vs 95% target — how many Trusts hit each |
+| 5 | Scale of the crisis - total patients failed |
+| 6 | 78% vs 95% target - how many Trusts hit each |
 | 7 | Performance by NHS region |
-| 8 | Local Trust — Sunderland analysis |
+| 8 | Local Trust - Sunderland analysis |
 | 9 | Sunderland vs national average |
 | 10 | Chronic underperformers below 70% all 3 years |
 
----
 
-## Step 3 — Power BI: Interactive Dashboard
+
+## Step 3 - Power BI: INTERACTIVE DASHBOARD
 
 The final step was turning everything into a dashboard any non-technical manager could use.
 ![NHS Dashboard Page 1](DASHBOARD%201.png)
 
-**Page 1 — National Overview**
+**Page 1 - National Overview**
 - KPI cards: avg performance, total Trusts, total attendances, total patients failed
 - Line chart: national performance vs both 95% and 78% targets across 3 years
 - Bar charts: attendances and patients failed by year
@@ -127,13 +117,13 @@ The final step was turning everything into a dashboard any non-technical manager
 
 ![NHS Dashboard Page 2](NHS%20DASHBOARD%202.png)
 
-**Page 2 — Trust and Regional Analysis**
+**Page 2 - Trust and Regional Analysis**
 - KPI cards: Trusts hitting 95%, Trusts hitting 78%, Sunderland performance, % patients failed
 - Trust performance ranking bar chart with conditional colour coding Red = below 78% | Amber = 78-95% | Green = above 95%
 - Regional average performance bar chart
 - Slicers: year, region, target status
 
-**DAX measures created:**
+**DAX MEASURES CREATED:**
 - National Avg Performance
 - Total Trusts
 - Total Attendances
@@ -145,9 +135,9 @@ The final step was turning everything into a dashboard any non-technical manager
 - % Patients Failed
 - Target Status (calculated column)
 
----
 
-## Key Findings
+
+## KEY FINLDINGS
 
 **1. Zero Trusts hit the 95% target**
 Not one NHS Trust out of 124 achieved the constitutional standard in any of the 3 years. The target has not been met nationally since 2015.
@@ -167,9 +157,9 @@ A 6 point gap exists between best and worst regions. No region hits either targe
 **6. Sunderland is below the national average**
 South Tyneside and Sunderland NHS Foundation Trust performed at 55.07% — 3.13 points below the national average of 58.2%.
 
----
 
-## Recommendations
+
+## RECOMMENDATIONS
 
 1. **Learn from the 15 Trusts that hit 78%**
    Commission peer review visits from top performers to the bottom 20 Trusts.
@@ -186,9 +176,7 @@ South Tyneside and Sunderland NHS Foundation Trust performed at 55.07% — 3.13 
 5. **Publish real time Trust level dashboards publicly**
    Transparent monthly reporting drives accountability and enables informed patient choice at zero additional cost.
 
----
 
----
 
 ## Tools and Skills
 
@@ -199,7 +187,7 @@ South Tyneside and Sunderland NHS Foundation Trust performed at 55.07% — 3.13 
 | Power BI | Dashboard | DAX, conditional formatting, KPI cards |
 | GitHub | Version control | README, folder structure |
 
----
+
 
 ## About This Project
 
@@ -207,10 +195,12 @@ This is the third project in my data analytics portfolio covering Finance, Telec
 
 Built entirely using free tools and publicly available government data under Open Government Licence v3.0.
 
----
+
 
 **Author:** IFEOLUWA SAMUEL SUNDAY
+
 **LinkedIn:** www.linkedin.com/in/ifeoluwa-samuel-sunday-a164bb32b
+open to work
 
 
 *Data Source: NHS England Official Statistics Hospital Accident and Emergency Activity 2022-2025*
