@@ -118,7 +118,7 @@ With the clean CSV imported into MySQL Workbench I ran 10 business queries to tu
 
 The final step was turning everything into a dashboard any non-technical manager could use.
 
-PAGE 1 HERE -----
+https://github.com/Techy-Sam1/HEALTHCARE-PROJECT-NHS-A-E-ANALYSIS-/blob/main/DASHBOARD%201.png
 
 **Page 1 — National Overview**
 - KPI cards: avg performance, total Trusts, total attendances, total patients failed
