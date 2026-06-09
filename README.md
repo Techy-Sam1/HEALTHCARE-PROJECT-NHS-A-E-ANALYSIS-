@@ -126,7 +126,7 @@ The final step was turning everything into a dashboard any non-technical manager
 - Slicers: year, target status, region
 
 ![NHS Dashboard Page 2](NHS%20DASHBOARD%202.png)
-https://github.com/Techy-Sam1/HEALTHCARE-PROJECT-NHS-A-E-ANALYSIS-/blob/c94b50ff20fc5fd4fc9f2f0f494eef8f3e10dc5a/
+
 **Page 2 — Trust and Regional Analysis**
 - KPI cards: Trusts hitting 95%, Trusts hitting 78%, Sunderland performance, % patients failed
 - Trust performance ranking bar chart with conditional colour coding Red = below 78% | Amber = 78-95% | Green = above 95%
