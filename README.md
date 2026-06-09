@@ -117,7 +117,7 @@ With the clean CSV imported into MySQL Workbench I ran 10 business queries to tu
 ## Step 3 — Power BI: Interactive Dashboard
 
 The final step was turning everything into a dashboard any non-technical manager could use.
-
+![NHS Dashboard Page 1](DASHBOARD_1.png)
 DASHBOARD 1.png
 
 **Page 1 — National Overview**
